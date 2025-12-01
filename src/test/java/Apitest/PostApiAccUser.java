@@ -47,7 +47,7 @@ public class PostApiAccUser {
         // JSON body დაუშვებელი პაროლით
         JSONObject requestBody = new JSONObject();
         requestBody.put("userName", "InvalidUser_" + System.currentTimeMillis());
-        requestBody.put("password", "abc"); // არასაკმარისი პაროლი
+        requestBody.put("password", "abc");
 
         Response response = given()
                 .header("Content-Type", "application/json")
@@ -57,11 +57,11 @@ public class PostApiAccUser {
                 .then()
                 .extract().response();
 
-        Assert.assertEquals(response.getStatusCode(), 400, "Status code should be 400 for invalid password");
+        Assert.assertEquals(response.getStatusCode(), 400, "Status code should be 400 invalid password");
 
         String expectedMessage = "Passwords must have at least one non alphanumeric character, one digit ('0'-'9'), one uppercase ('A'-'Z'), one lowercase ('a'-'z'), one special character and Password must be eight characters or longer.";
         String actualMessage = response.jsonPath().getString("message");
-        Assert.assertEquals(actualMessage, expectedMessage, "Error message should exactly match expected message");
+        Assert.assertEquals(actualMessage, expectedMessage, "Error message");
 
         System.out.println("Returned error message: " + actualMessage);
     }
