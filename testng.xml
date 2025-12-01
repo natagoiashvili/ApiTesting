@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="AikidoTest" verbose="1" thread-count="1" parallel="tests">
+    <test name="Test" parallel="tests">
+        <classes>
+            <class name = "Apitest.Bookapitesting"/>
+            <class name = "Apitest.PostApiAccUser"/>
+
+        </classes>
+    </test>
+</suite>
