@@ -11,7 +11,7 @@ import static io.restassured.RestAssured.given;
 
 public class Bookapitesting {
 
-    @BeforeClass   // ✅ ეს აკლდა!
+    @BeforeClass
     public void setup() {
         RestAssured.baseURI = "https://bookstore.toolsqa.com";
         RestAssured.useRelaxedHTTPSValidation();
